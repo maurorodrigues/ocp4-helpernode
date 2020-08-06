@@ -14,6 +14,10 @@
     import_tasks: validate_host_names.yaml
 
   tasks:
+  - include_vars: "../vars/images.yaml"
+  - include_vars: "../vars/images_ppc64le.yaml"
+    when: ppc64le
+
   - name: generate ssh keys
     import_tasks: generate_ssh_keys.yaml
     when: ssh_gen_key
